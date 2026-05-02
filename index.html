@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MATRIXBREACH | Build Real Tools</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=Space+Grotesk:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#adc6ff",
+            "surface-tint": "#b6c4ff",
+            "on-secondary-fixed": "#00201a",
+            "on-surface": "#e5e2e1",
+            "on-primary": "#00277f",
+            "on-error-container": "#ffdad6",
+            "surface-container-lowest": "#0e0e0e",
+            "surface-container-high": "#2a2a2a",
+            "on-secondary-fixed-variant": "#005144",
+            "secondary-container": "#00af96",
+            "error-container": "#93000a",
+            "on-primary-fixed-variant": "#003ab1",
+            "inverse-on-surface": "#313030",
+            "surface-bright": "#3a3939",
+            "secondary": "#54dcc1",
+            "on-secondary-container": "#003a31",
+            "primary-fixed-dim": "#b6c4ff",
+            "inverse-primary": "#004ee7",
+            "primary-fixed": "#dce1ff",
+            "surface-container": "#201f1f",
+            "inverse-surface": "#e5e2e1",
+            "on-background": "#e5e2e1",
+            "tertiary": "#adc6ff",
+            "surface-variant": "#353534",
+            "tertiary-fixed": "#d8e2ff",
+            "on-tertiary": "#002e6a",
+            "surface-dim": "#131313",
+            "on-tertiary-container": "#ebefff",
+            "on-primary-container": "#edeeff",
+            "on-secondary": "#00382e",
+            "on-tertiary-fixed-variant": "#004395",
+            "surface-container-highest": "#353534",
+            "tertiary-container": "#0c68db",
+            "outline-variant": "#434656",
+            "on-surface-variant": "#c3c5d9",
+            "secondary-fixed": "#74f8dd",
+            "on-tertiary-fixed": "#001a42",
+            "outline": "#8d90a2",
+            "surface-container-low": "#1c1b1b",
+            "on-primary-fixed": "#001550",
+            "surface": "#131313",
+            "on-error": "#690005",
+            "primary-container": "#175cff",
+            "background": "#131313",
+            "primary": "#b6c4ff",
+            "error": "#ffb4ab",
+            "secondary-fixed-dim": "#54dcc1"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Inter"],
+            "label-caps": ["Space Grotesk"],
+            "code-md": ["Space Grotesk"],
+            "headline-sm": ["Inter"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Inter"]
+          },
+          "fontSize": {
+            "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+            "code-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+            "headline-sm": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .glow-sm:hover {
+      box-shadow: 0 0 15px rgba(23, 92, 255, 0.4);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0A0A0A;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #222222;
+    }
+  </style>
+</head>
+<body class="bg-[#0A0A0A] text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+
+<div id="navbar"></div>
+
+<!-- <nav class="fixed top-0 w-full z-50 bg-[#0A0A0A] border-b border-[#222222] no shadows">
+<div class="max-w-[1280px] mx-auto flex items-center justify-between h-16 px-6 md:px-12">
+<div class="text-xl font-black tracking-tighter text-white">MATRIXBREACH</div>
+<div class="hidden md:flex items-center gap-8 font-['Inter'] font-medium tracking-tight text-sm uppercase">
+<a class="text-neutral-400 hover:text-white hover:bg-[#111111] hover:text-[#175CFF] transition-colors duration-200" href="#">Products</a>
+<a class="text-[#175CFF] border-b border-[#175CFF] pb-1" href="#">Build</a>
+<a class="text-neutral-400 hover:text-white hover:bg-[#111111] hover:text-[#175CFF] transition-colors duration-200" href="#">Tools</a>
+<a class="text-neutral-400 hover:text-white hover:bg-[#111111] hover:text-[#175CFF] transition-colors duration-200" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-neutral-400 cursor-pointer hover:text-white transition-colors">terminal</span>
+<button class="bg-[#175CFF] text-white px-4 py-2 text-xs font-bold uppercase tracking-widest active:scale-95 transition-transform duration-100">
+          Connect Wallet
+        </button>
+</div>
+</div>
+</nav> -->
+<main class="mt-16">
+<!-- Hero Section -->
+<section class="max-w-[1280px] mx-auto px-6 md:px-12 py-20 md:py-32 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-8">
+<div class="inline-flex items-center gap-2 bg-[#111111] border border-[#222222] px-3 py-1">
+<span class="w-2 h-2 bg-[#175CFF] animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">SYSTEM_STATUS: ACTIVE</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-white">
+          Build Real Tools.<br/>
+<span class="text-[#175CFF]">Learn by Shipping.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+          We strip away the corporate fluff and focus on pure engineering. At Matrixbreach, you don't fetch coffee. You ship production-ready tools for thousands of developers.
+        </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-[#175CFF] text-white px-8 py-4 font-label-caps text-label-caps hover:bg-[#004ee7] transition-all flex items-center gap-2">
+            START BUILDING <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<button class="border border-[#222222] text-white px-8 py-4 font-label-caps text-label-caps hover:bg-[#111111] transition-all">
+            VIEW ECOSYSTEM
+          </button>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-[#175CFF] to-transparent opacity-20 blur-xl"></div>
+<div class="relative bg-[#111111] border border-[#222222] rounded-lg overflow-hidden shadow-2xl">
+<div class="flex items-center justify-between px-4 py-2 bg-[#161616] border-b border-[#222222]">
+<div class="flex gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
+</div>
+<div class="font-code-md text-code-md text-neutral-500">matrix_shell — 80x24</div>
+</div>
+<div class="p-6 font-code-md text-code-md text-on-surface space-y-2 custom-scrollbar h-[320px] overflow-y-auto">
+<div class="flex gap-2">
+<span class="text-[#175CFF]">$</span>
+<span>matrix init production_tool</span>
+</div>
+<div class="text-secondary">&gt;&gt; Initializing core architecture...</div>
+<div class="text-secondary">&gt;&gt; Injecting performance modules...</div>
+<div class="text-neutral-500">Compiling 142 dependencies...</div>
+<div class="flex gap-2 items-center">
+<div class="h-1 bg-[#175CFF] w-3/4"></div>
+<span class="text-xs">75%</span>
+</div>
+<div class="text-white">BUILD SUCCESSFUL</div>
+<div class="text-[#175CFF]">matrix &gt;&gt; Shipping to matrixbreach.com/tools/v1...</div>
+<div class="flex gap-2">
+<span class="text-[#175CFF]">$</span>
+<span class="animate-pulse">|</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Metrics Section -->
+<section class="border-y border-[#222222] bg-[#111111]/50 py-12">
+<div class="max-w-[1280px] mx-auto px-6 md:px-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="text-center md:text-left">
+<div class="font-code-md text-headline-sm text-white font-bold">25+</div>
+<div class="font-label-caps text-label-caps text-neutral-500">TOOLS BUILT</div>
+</div>
+<div class="text-center md:text-left">
+<div class="font-code-md text-headline-sm text-white font-bold">12.4K</div>
+<div class="font-label-caps text-label-caps text-neutral-500">ACTIVE USERS</div>
+</div>
+<div class="text-center md:text-left">
+<div class="font-code-md text-headline-sm text-white font-bold">142k</div>
+<div class="font-label-caps text-label-caps text-neutral-500">COMMITS SHIPPPED</div>
+</div>
+<div class="text-center md:text-left">
+<div class="font-code-md text-headline-sm text-white font-bold">99.9%</div>
+<div class="font-label-caps text-label-caps text-neutral-500">UPTIME ARCH</div>
+</div>
+</div>
+</section>
+<!-- Products Ecosystem -->
+<section class="max-w-[1280px] mx-auto px-6 md:px-12 py-24">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+<div class="space-y-4">
+<h2 class="font-headline-md text-headline-md text-white">The Product Ecosystem</h2>
+<p class="text-on-surface-variant max-w-xl">Each tool is a standalone platform built to solve specific developer pain points with uncompromising speed.</p>
+</div>
+<a class="font-label-caps text-label-caps text-[#175CFF] hover:underline" href="#">EXPLORE ALL PRODUCTS</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- devbruh.dev -->
+<div class="bg-[#111111] border border-[#222222] p-6 hover:border-[#175CFF] transition-all group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[#175CFF]">terminal</span>
+</div>
+<div class="w-12 h-12 bg-[#175CFF]/10 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[#175CFF]">code</span>
+</div>
+<h3 class="font-headline-sm text-lg text-white mb-2">devbruh.dev</h3>
+<p class="text-sm text-on-surface-variant mb-6">Social platform for hardcore developers to share raw code snippets and architecture logs.</p>
+<div class="flex justify-between items-center">
+<span class="font-label-caps text-[10px] bg-[#161616] px-2 py-1 text-secondary border border-[#222222]">LIVE</span>
+<span class="material-symbols-outlined text-sm text-neutral-500 group-hover:text-white">open_in_new</span>
+</div>
+</div>
+<!-- PDF Mocha -->
+<div class="bg-[#111111] border border-[#222222] p-6 hover:border-[#175CFF] transition-all group">
+<div class="w-12 h-12 bg-[#175CFF]/10 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[#175CFF]">picture_as_pdf</span>
+</div>
+<h3 class="font-headline-sm text-lg text-white mb-2">PDF Mocha</h3>
+<p class="text-sm text-on-surface-variant mb-6">Serverless PDF generation engine for high-volume automated documentation pipelines.</p>
+<div class="flex justify-between items-center">
+<span class="font-label-caps text-[10px] bg-[#161616] px-2 py-1 text-secondary border border-[#222222]">V2.0</span>
+<span class="material-symbols-outlined text-sm text-neutral-500 group-hover:text-white">open_in_new</span>
+</div>
+</div>
+<!-- Knowviax -->
+<div class="bg-[#111111] border border-[#222222] p-6 hover:border-[#175CFF] transition-all group">
+<div class="w-12 h-12 bg-[#175CFF]/10 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[#175CFF]">psychology</span>
+</div>
+<h3 class="font-headline-sm text-lg text-white mb-2">Knowviax</h3>
+<p class="text-sm text-on-surface-variant mb-6">Context-aware AI documentation search that maps your codebase as a knowledge graph.</p>
+<div class="flex justify-between items-center">
+<span class="font-label-caps text-[10px] bg-[#161616] px-2 py-1 text-[#175CFF] border border-[#175CFF]/30">BETA</span>
+<span class="material-symbols-outlined text-sm text-neutral-500 group-hover:text-white">open_in_new</span>
+</div>
+</div>
+<!-- Universal Calculator -->
+<div class="bg-[#111111] border border-[#222222] p-6 hover:border-[#175CFF] transition-all group">
+<div class="w-12 h-12 bg-[#175CFF]/10 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[#175CFF]">calculate</span>
+</div>
+<h3 class="font-headline-sm text-lg text-white mb-2">U-Calc</h3>
+<p class="text-sm text-on-surface-variant mb-6">High-precision mathematical engine for blockchain and financial engineering simulations.</p>
+<div class="flex justify-between items-center">
+<span class="font-label-caps text-[10px] bg-[#161616] px-2 py-1 text-secondary border border-[#222222]">STABLE</span>
+<span class="material-symbols-outlined text-sm text-neutral-500 group-hover:text-white">open_in_new</span>
+</div>
+</div>
+</div>
+</section>
+<!-- How We Work (Step Flow) -->
+<section class="bg-[#0A0A0A] py-24 overflow-hidden">
+<div class="max-w-[1280px] mx-auto px-6 md:px-12">
+<h2 class="font-headline-md text-headline-md text-white mb-20 text-center">Engineered for Velocity</h2>
+<div class="relative flex flex-col md:flex-row justify-between gap-12">
+<!-- Connector Line -->
+<div class="hidden md:block absolute top-12 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#222222] to-transparent z-0"></div>
+<!-- Step 1 -->
+<div class="relative z-10 flex-1 flex flex-col items-center text-center">
+<div class="w-24 h-24 bg-[#111111] border border-[#222222] rounded-full flex items-center justify-center mb-8 hover:border-[#175CFF] transition-all">
+<span class="material-symbols-outlined text-3xl text-white">construction</span>
+</div>
+<h4 class="font-headline-sm text-white mb-4">Build Tools</h4>
+<p class="text-sm text-on-surface-variant max-w-xs">Identify a developer bottleneck and architect a performant solution using modern stack.</p>
+</div>
+<!-- Step 2 -->
+<div class="relative z-10 flex-1 flex flex-col items-center text-center">
+<div class="w-24 h-24 bg-[#111111] border border-[#222222] rounded-full flex items-center justify-center mb-8 hover:border-[#175CFF] transition-all">
+<span class="material-symbols-outlined text-3xl text-white">groups</span>
+</div>
+<h4 class="font-headline-sm text-white mb-4">Join the Build</h4>
+<p class="text-sm text-on-surface-variant max-w-xs">Contribute to live projects. Review PRs from veterans and learn how to write production code.</p>
+</div>
+<!-- Step 3 -->
+<div class="relative z-10 flex-1 flex flex-col items-center text-center">
+<div class="w-24 h-24 bg-[#111111] border border-[#222222] rounded-full flex items-center justify-center mb-8 hover:border-[#175CFF] transition-all">
+<span class="material-symbols-outlined text-3xl text-white">rocket_launch</span>
+</div>
+<h4 class="font-headline-sm text-white mb-4">Learn by Shipping</h4>
+<p class="text-sm text-on-surface-variant max-w-xs">Gain deep technical mastery by actually putting tools in the hands of real users.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Developer Experience (Code Snippet) -->
+<section class="max-w-[1280px] mx-auto px-6 md:px-12 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1 relative">
+<div class="bg-[#111111] border-l-4 border-secondary p-8 font-code-md text-code-md shadow-lg">
+<div class="flex justify-between items-center mb-6">
+<span class="text-neutral-500">src/internship_trap.ts</span>
+<div class="flex gap-2">
+<div class="w-2 h-2 rounded-full bg-red-500/20"></div>
+<div class="w-2 h-2 rounded-full bg-green-500/20"></div>
+</div>
+</div>
+<pre class="text-on-surface-variant"><code class="block">
+<span class="text-secondary">const</span> <span class="text-white">matrixbreach</span> = {
+  culture: <span class="text-tertiary">'Hardcore Engineering'</span>,
+  priority: <span class="text-tertiary">'Production Shipping'</span>,
+  no_fluff: <span class="text-secondary">true</span>
+};
+
+<span class="text-neutral-500">// Real engineering, not internships</span>
+<span class="text-secondary">function</span> <span class="text-white">deploy</span>(team) {
+  <span class="text-secondary">if</span> (team.wants_coffee_runs) {
+    <span class="text-error">throw new Error('Wrong Org')</span>;
+  }
+  <span class="text-white">team.access('PROD_SERVER')</span>;
+  <span class="text-white">team.ship('REAL_VALUE')</span>;
+}
+          </code></pre>
+</div>
+</div>
+<div class="order-1 lg:order-2 space-y-8">
+<h2 class="font-headline-md text-headline-md text-white">Engineering vs. Internships</h2>
+<p class="text-body-lg text-on-surface-variant">
+          Traditional internships are broken. You spend months on "side projects" that never see the light of day. At Matrixbreach, you are an engineer from day one. You own your code, you break things in production, and you learn how to fix them under pressure.
+        </p>
+<ul class="space-y-4">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-[#175CFF]">check_circle</span>
+<div>
+<p class="font-bold text-white">Full Production Access</p>
+<p class="text-sm text-neutral-500">Deploy to global infrastructure using CI/CD pipelines you built.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-[#175CFF]">check_circle</span>
+<div>
+<p class="font-bold text-white">Direct Mentorship</p>
+<p class="text-sm text-neutral-500">Code reviews that actually challenge your architecture choices.</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<!-- Featured Tool Preview -->
+<section class="max-w-[1280px] mx-auto px-6 md:px-12 py-24">
+<div class="bg-[#111111] border border-[#222222] p-8 md:p-12">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div>
+<span class="font-label-caps text-label-caps text-[#175CFF] mb-4 block">FEATURED TOOL PREVIEW</span>
+<h3 class="font-headline-md text-white mb-6">JSON Formatter &amp; Schema Validator</h3>
+<p class="text-on-surface-variant mb-8">Test our latest utility engine directly from the landing page. High-speed parsing with instant validation.</p>
+<div class="flex gap-4">
+<button class="bg-[#161616] border border-[#222222] px-4 py-2 text-xs font-bold hover:bg-[#175CFF] transition-colors">FORMAT JSON</button>
+<button class="bg-[#161616] border border-[#222222] px-4 py-2 text-xs font-bold hover:bg-secondary hover:text-black transition-colors">MINIFY</button>
+</div>
+</div>
+<div class="bg-[#0A0A0A] border border-[#222222] rounded overflow-hidden">
+<div class="flex items-center gap-2 px-4 py-2 bg-[#161616] border-b border-[#222222]">
+<div class="w-2 h-2 rounded-full bg-[#175CFF]"></div>
+<span class="text-[10px] font-label-caps text-neutral-500">INPUT_BUFFER.JSON</span>
+</div>
+<div class="p-6 font-code-md text-sm text-secondary">
+<div class="flex gap-4">
+<span class="text-neutral-700">1</span>
+<span>{</span>
+</div>
+<div class="flex gap-4">
+<span class="text-neutral-700">2</span>
+<span class="ml-4">"matrix": "enabled",</span>
+</div>
+<div class="flex gap-4">
+<span class="text-neutral-700">3</span>
+<span class="ml-4">"version": "1.0.4-stable",</span>
+</div>
+<div class="flex gap-4">
+<span class="text-neutral-700">4</span>
+<span class="ml-4">"tools": ["pdf_mocha", "knowviax"],</span>
+</div>
+<div class="flex gap-4">
+<span class="text-neutral-700">5</span>
+<span class="ml-4">"active_status": true</span>
+</div>
+<div class="flex gap-4">
+<span class="text-neutral-700">6</span>
+<span>}</span>
+</div>
+<div class="mt-4 animate-pulse">_</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-[1280px] mx-auto px-6 md:px-12 py-32 text-center">
+<div class="relative py-24 bg-gradient-to-b from-[#111111] to-transparent border border-[#222222]">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-[#175CFF] rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(23,92,255,0.6)]">
+<span class="material-symbols-outlined text-white">bolt</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-white mb-8">Ready to Override the Standard?</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto mb-12 text-body-lg">
+          Join a collective of developers building the next generation of digital infrastructure. No fluff, no gatekeeping, just pure code.
+        </p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="bg-[#175CFF] text-white px-10 py-5 font-label-caps text-label-caps hover:glow-sm transition-all">
+            START BUILDING WITH US
+          </button>
+<button class="border border-[#222222] text-white px-10 py-5 font-label-caps text-label-caps hover:bg-[#111111] transition-all">
+            EXPLORE ALL TOOLS
+          </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<!-- <footer class="w-full py-12 bg-[#0A0A0A] border-t border-[#222222]">
+<div class="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center px-6 gap-8">
+<div class="flex flex-col gap-4">
+<div class="text-lg font-bold text-white">MATRIXBREACH</div>
+<p class="font-mono text-xs uppercase tracking-widest text-neutral-500">© 2024 MATRIXBREACH. SYSTEM_OVERRIDE_ENABLED</p>
+</div>
+<div class="flex gap-8 font-mono text-xs uppercase tracking-widest">
+<a class="text-neutral-500 hover:text-[#175CFF] transition-all cursor-pointer" href="#">GitHub</a>
+<a class="text-neutral-500 hover:text-[#175CFF] transition-all cursor-pointer" href="#">Documentation</a>
+<a class="text-neutral-500 hover:text-[#175CFF] transition-all cursor-pointer" href="#">Status</a>
+<a class="text-neutral-500 hover:text-[#175CFF] transition-all cursor-pointer" href="#">Privacy</a>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-neutral-500 hover:text-white cursor-pointer">rss_feed</span>
+<span class="material-symbols-outlined text-neutral-500 hover:text-white cursor-pointer">public</span>
+</div>
+</div>
+</footer> -->
+<div id="footer"></div>
+
+<script src="/js/scripts/layout.js"></script>
+</body></html>

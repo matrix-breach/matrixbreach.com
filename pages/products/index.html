@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Matrixbreach Ecosystem | Four Platforms. One Engineering Mindset.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-container": "#0c68db",
+                      "on-primary-fixed": "#001550",
+                      "surface-tint": "#b6c4ff",
+                      "background": "#131313",
+                      "secondary-container": "#00af96",
+                      "outline": "#8d90a2",
+                      "on-tertiary": "#002e6a",
+                      "on-error-container": "#ffdad6",
+                      "inverse-primary": "#004ee7",
+                      "surface-container-highest": "#353534",
+                      "on-primary-fixed-variant": "#003ab1",
+                      "surface-container": "#201f1f",
+                      "on-error": "#690005",
+                      "secondary-fixed-dim": "#54dcc1",
+                      "on-background": "#e5e2e1",
+                      "primary-fixed": "#dce1ff",
+                      "outline-variant": "#434656",
+                      "tertiary-fixed-dim": "#adc6ff",
+                      "surface-variant": "#353534",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-secondary-fixed-variant": "#005144",
+                      "surface": "#131313",
+                      "on-tertiary-fixed": "#001a42",
+                      "on-primary": "#00277f",
+                      "secondary": "#54dcc1",
+                      "inverse-surface": "#e5e2e1",
+                      "error-container": "#93000a",
+                      "on-tertiary-container": "#ebefff",
+                      "tertiary": "#adc6ff",
+                      "on-surface-variant": "#c3c5d9",
+                      "on-secondary-fixed": "#00201a",
+                      "on-tertiary-fixed-variant": "#004395",
+                      "on-surface": "#e5e2e1",
+                      "surface-bright": "#3a3939",
+                      "on-primary-container": "#edeeff",
+                      "inverse-on-surface": "#313030",
+                      "on-secondary": "#00382e",
+                      "error": "#ffb4ab",
+                      "secondary-fixed": "#74f8dd",
+                      "primary-container": "#175cff",
+                      "surface-container-high": "#2a2a2a",
+                      "on-secondary-container": "#003a31",
+                      "surface-dim": "#131313",
+                      "primary-fixed-dim": "#b6c4ff",
+                      "primary": "#b6c4ff",
+                      "tertiary-fixed": "#d8e2ff",
+                      "surface-container-low": "#1c1b1b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "base-unit": "8px",
+                      "max-width": "1280px",
+                      "margin": "32px"
+              },
+              "fontFamily": {
+                      "headline-sm": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-caps": ["Space Grotesk"],
+                      "code-md": ["Space Grotesk"]
+              },
+              "fontSize": {
+                      "headline-sm": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                      "code-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #0A0A0A;
+            color: #e5e2e1;
+        }
+        .card-hover:hover {
+            box-shadow: 0 0 20px rgba(23, 92, 255, 0.15);
+            border-color: #175CFF;
+            transform: scale(1.01);
+        }
+        .grid-mesh {
+            background-image: radial-gradient(#222222 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+    </style>
+</head>
+<body class="font-body-md">
+<!-- TopNavBar -->
+<!-- <nav class="bg-[#0A0A0A]/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-[#222222]">
+<div class="flex justify-between items-center px-6 py-4 max-w-[1280px] mx-auto">
+<div class="text-xl font-black tracking-tighter text-white uppercase font-headline-md">
+                MATRIXBREACH
+            </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-[#175CFF] border-b-2 border-[#175CFF] pb-1 font-headline-sm text-sm" href="#">Ecosystem</a>
+<a class="text-gray-400 font-medium hover:text-white transition-colors duration-200 font-headline-sm text-sm" href="#">Products</a>
+<a class="text-gray-400 font-medium hover:text-white transition-colors duration-200 font-headline-sm text-sm" href="#">Network</a>
+<a class="text-gray-400 font-medium hover:text-white transition-colors duration-200 font-headline-sm text-sm" href="#">Docs</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-white hover:text-[#175CFF] transition-all cursor-pointer active:scale-95">
+<span class="material-symbols-outlined">terminal</span>
+</button>
+<button class="bg-[#175CFF] text-white px-4 py-1.5 font-label-caps text-[10px] tracking-widest uppercase hover:bg-blue-600 transition-all">
+                    Console
+                </button>
+</div>
+</div>
+</nav> -->
+    <div id="navbar"></div>
+
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative min-h-[716px] flex items-center px-6 max-w-[1280px] mx-auto overflow-hidden">
+<div class="w-full md:w-1/2 z-10">
+<p class="font-label-caps text-[#175CFF] mb-4 tracking-[0.2em]">SYSTEM_INDEX: MATRIXBREACH ECOSYSTEM</p>
+<h1 class="font-headline-lg text-white mb-6">Four Platforms. One Engineering Mindset.</h1>
+<p class="font-body-lg text-on-surface-variant max-w-lg mb-10">
+                    Each product solves a specific layer of the developer and learning workflow — from raw utilities to full-scale platforms.
+                </p>
+<div class="flex gap-4">
+<button class="bg-[#175CFF] text-white px-8 py-4 font-label-caps text-sm tracking-widest uppercase hover:shadow-[0_0_15px_rgba(23,92,255,0.5)] transition-all">
+                        Explore Tools
+                    </button>
+<button class="border border-[#222222] text-white px-8 py-4 font-label-caps text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all">
+                        Join the Build
+                    </button>
+</div>
+</div>
+<div class="absolute right-0 top-0 bottom-0 w-1/2 hidden md:flex items-center justify-center opacity-40">
+<!-- Visual Network Representation -->
+<div class="relative w-full h-full grid-mesh">
+<div class="absolute top-1/4 left-1/4 w-3 h-3 bg-[#175CFF] rounded-full blur-[2px]"></div>
+<div class="absolute top-3/4 left-1/3 w-2 h-2 bg-secondary rounded-full"></div>
+<div class="absolute top-1/2 right-1/4 w-4 h-4 bg-[#175CFF] rounded-full shadow-[0_0_10px_#175CFF]"></div>
+<svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+<line stroke="#175CFF" stroke-dasharray="4" stroke-width="0.5" x1="25%" x2="50%" y1="25%" y2="50%"></line>
+<line stroke="#175CFF" stroke-width="0.5" x1="50%" x2="75%" y1="50%" y2="50%"></line>
+<line stroke="#175CFF" stroke-dasharray="2" stroke-width="0.5" x1="33%" x2="50%" y1="75%" y2="50%"></line>
+</svg>
+</div>
+</div>
+</section>
+<!-- Product Grid -->
+<section class="px-6 py-20 max-w-[1280px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- devbruh -->
+<div class="bg-[#111111] border border-[#222222] p-8 card-hover transition-all duration-300 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-headline-md text-white">devbruh</h3>
+<span class="bg-[#175CFF]/10 text-[#175CFF] font-label-caps px-3 py-1 text-[10px]">LIVE</span>
+</div>
+<p class="font-headline-sm text-lg text-white/90 mb-2">All-in-one developer utility platform.</p>
+<p class="font-body-md text-on-surface-variant mb-6">JSON tools, formatters, encoders, converters — everything developers need in one place, fast and minimal.</p>
+<div class="flex gap-2 mb-8">
+<span class="bg-[#0A0A0A] border border-[#222222] font-label-caps px-2 py-1 text-[9px] text-gray-400">JSON</span>
+<span class="bg-[#0A0A0A] border border-[#222222] font-label-caps px-2 py-1 text-[9px] text-gray-400">FORMATTERS</span>
+<span class="bg-[#0A0A0A] border border-[#222222] font-label-caps px-2 py-1 text-[9px] text-gray-400">CONVERTERS</span>
+</div>
+</div>
+<div class="bg-[#0A0A0A] p-4 border border-[#222222] font-code-md text-secondary text-xs rounded-lg">
+<div class="flex justify-between mb-2 opacity-50">
+<span>Input_Data.json</span>
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</div>
+<pre><code>{
+  "matrix": "breach",
+  "status": "active",
+  "nodes": 4
+}</code></pre>
+</div>
+</div>
+<!-- Knowviax -->
+<div class="bg-[#111111] border border-[#222222] p-8 card-hover transition-all duration-300 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-headline-md text-white">Knowviax</h3>
+<span class="bg-secondary/10 text-secondary font-label-caps px-3 py-1 text-[10px]">BETA</span>
+</div>
+<p class="font-headline-sm text-lg text-white/90 mb-2">Free learning platform built for real understanding.</p>
+<p class="font-body-md text-on-surface-variant mb-6">Structured knowledge simplified. Deep dives into complex systems without the overhead.</p>
+<div class="flex gap-2 mb-8">
+<span class="bg-[#0A0A0A] border border-[#222222] font-label-caps px-2 py-1 text-[9px] text-gray-400">COURSES</span>
+<span class="bg-[#0A0A0A] border border-[#222222] font-label-caps px-2 py-1 text-[9px] text-gray-400">NOTES</span>
+<span class="bg-[#0A0A0A] border border-[#222222] font-label-caps px-2 py-1 text-[9px] text-gray-400">LEARNING PATHS</span>
+</div>
+</div>
+<div class="bg-[#0A0A0A] p-4 border border-[#222222] rounded-lg">
+<div class="space-y-3">
+<div class="h-8 bg-[#161616] flex items-center px-3 justify-between">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="text-[10px] font-label-caps">System Architecture 101</span>
+</div>
+<span class="text-[10px] text-on-surface-variant">45%</span>
+</div>
+<div class="h-8 bg-[#161616] flex items-center px-3 justify-between opacity-50">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-gray-600"></div>
+<span class="text-[10px] font-label-caps">Cryptography Fundamentals</span>
+</div>
+<span class="text-[10px]">LOCKED</span>
+</div>
+</div>
+</div>
+</div>
+<!-- U-Calc -->
+<div class="bg-[#111111] border border-[#222222] p-8 card-hover transition-all duration-300 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-headline-md text-white">U-Calc</h3>
+<span class="bg-gray-800 text-gray-400 font-label-caps px-3 py-1 text-[10px]">STABLE</span>
+</div>
+<p class="font-headline-sm text-lg text-white/90 mb-2">Universal calculation engine for precision workflows.</p>
+<p class="font-body-md text-on-surface-variant mb-6">All-in-one calculation engine designed for math, finance, and engineering accuracy.</p>
+<div class="flex gap-2 mb-8">
+<span class="bg-[#0A0A0A] border border-[#222222] font-label-caps px-2 py-1 text-[9px] text-gray-400">MATH</span>
+<span class="bg-[#0A0A0A] border border-[#222222] font-label-caps px-2 py-1 text-[9px] text-gray-400">FINANCE</span>
+<span class="bg-[#0A0A0A] border border-[#222222] font-label-caps px-2 py-1 text-[9px] text-gray-400">ENGINEERING</span>
+</div>
+</div>
+<div class="bg-[#0A0A0A] border border-[#222222] rounded-lg overflow-hidden">
+<div class="p-3 bg-[#161616] border-b border-[#222222] flex justify-between text-[10px] font-label-caps">
+<span>ENGINEERING_MODE</span>
+<span class="text-secondary">READY</span>
+</div>
+<div class="p-6 text-center">
+<span class="text-3xl font-headline-md text-white">42,881.04</span>
+<p class="text-[10px] font-label-caps text-on-surface-variant mt-2">RESULT_OUTPUT_PRECISION_SIG8</p>
+</div>
+</div>
+</div>
+<!-- PDF Mocha -->
+<div class="bg-[#111111] border border-[#222222] p-8 card-hover transition-all duration-300 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-headline-md text-white">PDF Mocha</h3>
+<span class="bg-[#175CFF]/10 text-[#175CFF] font-label-caps px-3 py-1 text-[10px]">LIVE</span>
+</div>
+<p class="font-headline-sm text-lg text-white/90 mb-2">Complete PDF tool suite for everyday and power users.</p>
+<p class="font-body-md text-on-surface-variant mb-6">Clean, fast PDF tools without clutter. High-performance processing right in the browser.</p>
+<div class="flex gap-2 mb-8">
+<span class="bg-[#0A0A0A] border border-[#222222] font-label-caps px-2 py-1 text-[9px] text-gray-400">MERGE</span>
+<span class="bg-[#0A0A0A] border border-[#222222] font-label-caps px-2 py-1 text-[9px] text-gray-400">SPLIT</span>
+<span class="bg-[#0A0A0A] border border-[#222222] font-label-caps px-2 py-1 text-[9px] text-gray-400">COMPRESS</span>
+</div>
+</div>
+<div class="bg-[#0A0A0A] border-2 border-dashed border-[#222222] p-8 rounded-lg flex flex-col items-center justify-center group hover:border-[#175CFF] transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-gray-600 mb-2 group-hover:text-[#175CFF]">upload_file</span>
+<p class="text-[10px] font-label-caps text-gray-400">DROP FILES HERE TO BEGIN</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Ecosystem Connection -->
+<section class="py-24 border-y border-[#222222] bg-[#0c0c0c]">
+<div class="max-w-[1280px] mx-auto px-6">
+<h2 class="font-headline-md text-white mb-12 text-center">How Everything Connects</h2>
+<div class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4">
+<!-- Step 1 -->
+<div class="flex-1 text-center group">
+<div class="w-16 h-16 bg-[#111111] border border-[#222222] mx-auto flex items-center justify-center mb-4 group-hover:border-[#175CFF] transition-all">
+<span class="material-symbols-outlined text-[#175CFF]">school</span>
+</div>
+<p class="font-label-caps text-[10px] text-secondary mb-2">KNOWVIAX</p>
+<p class="font-body-md text-xs text-on-surface-variant">Acquire fundamental technical knowledge.</p>
+</div>
+<span class="material-symbols-outlined text-gray-700 hidden md:block">arrow_forward</span>
+<span class="material-symbols-outlined text-gray-700 md:hidden">arrow_downward</span>
+<!-- Step 2 -->
+<div class="flex-1 text-center group">
+<div class="w-16 h-16 bg-[#111111] border border-[#222222] mx-auto flex items-center justify-center mb-4 group-hover:border-[#175CFF] transition-all">
+<span class="material-symbols-outlined text-[#175CFF]">construction</span>
+</div>
+<p class="font-label-caps text-[10px] text-secondary mb-2">DEVBRUH</p>
+<p class="font-body-md text-xs text-on-surface-variant">Convert and format data during engineering.</p>
+</div>
+<span class="material-symbols-outlined text-gray-700 hidden md:block">arrow_forward</span>
+<span class="material-symbols-outlined text-gray-700 md:hidden">arrow_downward</span>
+<!-- Step 3 -->
+<div class="flex-1 text-center group">
+<div class="w-16 h-16 bg-[#111111] border border-[#222222] mx-auto flex items-center justify-center mb-4 group-hover:border-[#175CFF] transition-all">
+<span class="material-symbols-outlined text-[#175CFF]">calculate</span>
+</div>
+<p class="font-label-caps text-[10px] text-secondary mb-2">U-CALC</p>
+<p class="font-body-md text-xs text-on-surface-variant">Perform high-precision technical calculations.</p>
+</div>
+<span class="material-symbols-outlined text-gray-700 hidden md:block">arrow_forward</span>
+<span class="material-symbols-outlined text-gray-700 md:hidden">arrow_downward</span>
+<!-- Step 4 -->
+<div class="flex-1 text-center group">
+<div class="w-16 h-16 bg-[#111111] border border-[#222222] mx-auto flex items-center justify-center mb-4 group-hover:border-[#175CFF] transition-all">
+<span class="material-symbols-outlined text-[#175CFF]">description</span>
+</div>
+<p class="font-label-caps text-[10px] text-secondary mb-2">PDF MOCHA</p>
+<p class="font-body-md text-xs text-on-surface-variant">Export and manage finalized documentation.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Metrics Strip -->
+<section class="bg-[#111111] border-b border-[#222222]">
+<div class="max-w-[1280px] mx-auto px-6 py-12">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="text-center md:text-left border-l-2 border-[#175CFF] pl-6">
+<p class="font-code-md text-2xl text-white">428</p>
+<p class="font-label-caps text-[10px] text-gray-500 uppercase">Total Tools</p>
+</div>
+<div class="text-center md:text-left border-l-2 border-[#175CFF] pl-6">
+<p class="font-code-md text-2xl text-white">1.2M+</p>
+<p class="font-label-caps text-[10px] text-gray-500 uppercase">Active Users</p>
+</div>
+<div class="text-center md:text-left border-l-2 border-[#175CFF] pl-6">
+<p class="font-code-md text-2xl text-white">8.5M</p>
+<p class="font-label-caps text-[10px] text-gray-500 uppercase">Docs Processed</p>
+</div>
+<div class="text-center md:text-left border-l-2 border-[#175CFF] pl-6">
+<p class="font-code-md text-2xl text-white">24B</p>
+<p class="font-label-caps text-[10px] text-gray-500 uppercase">Calculations Run</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Philosophy Section -->
+<section class="py-32 px-6 max-w-[1280px] mx-auto text-center relative overflow-hidden">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#175CFF]/5 rounded-full blur-[100px] -z-10"></div>
+<h2 class="font-headline-md text-white mb-8">Built from Real Problems</h2>
+<p class="font-body-lg text-on-surface-variant max-w-3xl mx-auto leading-relaxed">
+                We don't build for hype. Every product exists because we needed it while building something else. 
+                Our development cycle is driven by utility, performance, and the removal of unnecessary friction 
+                from the modern engineering workflow.
+            </p>
+</section>
+<!-- Final CTA -->
+<section class="bg-[#175CFF] py-20 px-6 text-center">
+<div class="max-w-[800px] mx-auto">
+<h2 class="font-headline-lg text-white mb-10">Start Using the Ecosystem</h2>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-white text-[#175CFF] px-10 py-5 font-label-caps text-sm tracking-widest uppercase hover:bg-gray-100 transition-all font-bold">
+                        Explore Tools
+                    </button>
+<button class="border-2 border-white text-white px-10 py-5 font-label-caps text-sm tracking-widest uppercase hover:bg-white/10 transition-all">
+                        Join the Build
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<!-- <footer class="bg-[#0A0A0A] w-full border-t border-[#222222] py-12">
+<div class="max-w-[1280px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+<div class="mb-8 md:mb-0">
+<span class="text-[#175CFF] font-bold font-label-caps tracking-tighter">MATRIXBREACH</span>
+<p class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-gray-600 mt-2">© 2024 MATRIXBREACH // TERMINAL_ACCESS_GRANTED</p>
+</div>
+<div class="flex gap-8">
+<a class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-gray-600 hover:text-[#175CFF] transition-all" href="#">Status</a>
+<a class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-gray-600 hover:text-[#175CFF] transition-all" href="#">Security</a>
+<a class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-gray-600 hover:text-[#175CFF] transition-all" href="#">Privacy</a>
+<a class="font-['Space_Grotesk'] text-xs uppercase tracking-widest text-gray-600 hover:text-[#175CFF] transition-all" href="#">API</a>
+</div>
+</div>
+</footer> -->
+
+<div id="footer"></div>
+
+    <script src="/js/scripts/layout.js"></script>
+</body></html>

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Space+Grotesk:wght@400;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-tertiary-fixed": "#001a42",
+                        "on-tertiary": "#002e6a",
+                        "surface": "#131313",
+                        "secondary": "#54dcc1",
+                        "tertiary-container": "#0c68db",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#005144",
+                        "secondary-fixed": "#74f8dd",
+                        "on-secondary": "#00382e",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "surface-container-highest": "#353534",
+                        "outline": "#8d90a2",
+                        "primary-container": "#175cff",
+                        "outline-variant": "#434656",
+                        "on-primary-fixed": "#001550",
+                        "on-primary-container": "#edeeff",
+                        "secondary-fixed-dim": "#54dcc1",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-container": "#ebefff",
+                        "on-secondary-container": "#003a31",
+                        "on-secondary-fixed": "#00201a",
+                        "surface-bright": "#3a3939",
+                        "surface-variant": "#353534",
+                        "on-primary-fixed-variant": "#003ab1",
+                        "surface-container-high": "#2a2a2a",
+                        "inverse-primary": "#004ee7",
+                        "tertiary": "#adc6ff",
+                        "error-container": "#93000a",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "on-surface": "#e5e2e1",
+                        "primary": "#b6c4ff",
+                        "on-surface-variant": "#c3c5d9",
+                        "secondary-container": "#00af96",
+                        "error": "#ffb4ab",
+                        "surface-dim": "#131313",
+                        "surface-container": "#201f1f",
+                        "inverse-on-surface": "#313030",
+                        "surface-tint": "#b6c4ff",
+                        "surface-container-low": "#1c1b1b",
+                        "on-primary": "#00277f",
+                        "primary-fixed": "#dce1ff",
+                        "on-error": "#690005",
+                        "background": "#131313",
+                        "on-background": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base-unit": "8px",
+                        "margin": "32px",
+                        "max-width": "1280px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "code-md": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Space Grotesk"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "code-md": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0A0A0A;
+        }
+
+        .glow-hover:hover {
+            box-shadow: 0 0 15px rgba(23, 92, 255, 0.2);
+        }
+
+        .terminal-accent {
+            border-left: 4px solid #54dcc1;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #222222;
+        }
+
+        .glow-sm:hover {
+            box-shadow: 0 0 15px rgba(23, 92, 255, 0.4);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-surface text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+    <!-- TopNavBar (Matched from SCREEN_4) -->
+    <!-- <nav class="fixed top-0 w-full z-50 bg-[#0A0A0A] border-b border-[#222222]">
+        <div class="max-w-[1280px] mx-auto flex items-center justify-between h-16 px-6 md:px-12">
+            <div class="text-xl font-black tracking-tighter text-white">MATRIXBREACH</div>
+            <div class="hidden md:flex items-center gap-8 font-['Inter'] font-medium tracking-tight text-sm uppercase">
+                <a class="text-neutral-400 hover:text-white hover:text-[#175CFF] transition-colors duration-200"
+                    href="#">Products</a>
+                <a class="text-neutral-400 hover:text-white hover:text-[#175CFF] transition-colors duration-200"
+                    href="#">Build</a>
+                <a class="text-[#175CFF] border-b border-[#175CFF] pb-1" href="#">Tools</a>
+                <a class="text-neutral-400 hover:text-white hover:text-[#175CFF] transition-colors duration-200"
+                    href="#">Contact</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <span
+                    class="material-symbols-outlined text-neutral-400 cursor-pointer hover:text-white transition-colors">terminal</span>
+                <button
+                    class="bg-[#175CFF] text-white px-4 py-2 text-xs font-bold uppercase tracking-widest active:scale-95 transition-transform duration-100">
+                    Connect Wallet
+                </button>
+            </div>
+        </div>
+    </nav> -->
+    <div id="navbar"></div>
+
+    <!-- Main Content Canvas (No Sidebar, Full Width) -->
+    <main class="pt-24 pb-16 px-6">
+        <div class="max-w-[1280px] mx-auto">
+            <!-- Hero Section -->
+            <section class="mb-16">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+                    <div class="max-w-2xl">
+                        <h1 class="font-headline-lg text-on-surface mb-4">Tools That Actually Get Used.</h1>
+                        <p class="font-body-lg text-zinc-400 mb-8">A growing collection of fast, no-fluff utilities
+                            built for developers, students, and everyday workflows.</p>
+                        <!-- Large Search Bar -->
+                        <div class="relative group max-w-xl">
+                            <span
+                                class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 group-focus-within:text-primary-container">search</span>
+                            <input
+                                class="w-full bg-[#0A0A0A] border border-[#222222] rounded-lg py-4 pl-12 pr-4 text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container font-code-md transition-all"
+                                placeholder="Search tools (JSON, PDF, calculator...)" type="text" />
+                        </div>
+                    </div>
+                    <!-- Stats Strip -->
+                    <div class="flex gap-8 border border-[#222222] bg-[#111111] p-6 rounded-lg font-code-md">
+                        <div>
+                            <div class="text-[10px] text-zinc-500 uppercase tracking-widest mb-1">Tools Available</div>
+                            <div class="text-xl font-bold text-[#175CFF]">42</div>
+                        </div>
+                        <div class="border-l border-[#222222] pl-8">
+                            <div class="text-[10px] text-zinc-500 uppercase tracking-widest mb-1">Daily Uses</div>
+                            <div class="text-xl font-bold text-secondary">12k</div>
+                        </div>
+                        <div class="border-l border-[#222222] pl-8">
+                            <div class="text-[10px] text-zinc-500 uppercase tracking-widest mb-1">Contributors</div>
+                            <div class="text-xl font-bold text-on-surface">150</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Category Tabs -->
+                <div class="mt-12 flex gap-4 overflow-x-auto pb-4 custom-scrollbar">
+                    <button
+                        class="px-6 py-2 bg-primary-container text-on-primary-container rounded font-label-caps whitespace-nowrap">All</button>
+                    <button
+                        class="px-6 py-2 bg-[#111111] text-zinc-500 border border-[#222222] hover:border-zinc-500 hover:text-white rounded font-label-caps whitespace-nowrap transition-all">Developer</button>
+                    <button
+                        class="px-6 py-2 bg-[#111111] text-zinc-500 border border-[#222222] hover:border-zinc-500 hover:text-white rounded font-label-caps whitespace-nowrap transition-all">PDF</button>
+                    <button
+                        class="px-6 py-2 bg-[#111111] text-zinc-500 border border-[#222222] hover:border-zinc-500 hover:text-white rounded font-label-caps whitespace-nowrap transition-all">Calculators</button>
+                    <button
+                        class="px-6 py-2 bg-[#111111] text-zinc-500 border border-[#222222] hover:border-zinc-500 hover:text-white rounded font-label-caps whitespace-nowrap transition-all">Utilities</button>
+                </div>
+            </section>
+            <!-- Popular Tools Bento Section -->
+            <section class="mb-20">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="h-px flex-1 bg-[#222222]"></div>
+                    <h2 class="font-headline-sm uppercase tracking-tighter text-zinc-500 px-4">Popular Tools Right Now
+                    </h2>
+                    <div class="h-px flex-1 bg-[#222222]"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Featured Card 1 -->
+                    <div
+                        class="md:col-span-2 group relative bg-[#111111] border border-[#222222] rounded-xl overflow-hidden hover:border-primary-container transition-all duration-300">
+                        <div class="p-8 flex flex-col h-full">
+                            <div class="flex justify-between items-start mb-6">
+                                <span
+                                    class="bg-primary-container/10 text-primary-container px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-full border border-primary-container/20">Popular</span>
+                                <span class="material-symbols-outlined text-primary-container text-4xl">code</span>
+                            </div>
+                            <h3 class="font-headline-md text-white mb-2">JSON Formatter &amp; Validator</h3>
+                            <p class="text-zinc-400 font-body-md mb-8 max-w-md">The industry standard for cleaning,
+                                validating, and beautifying complex JSON objects instantly.</p>
+                            <!-- Live Preview Mini App -->
+                            <div
+                                class="mt-auto bg-[#0A0A0A] border border-[#222222] rounded-lg p-4 font-code-md text-sm mb-6 terminal-accent">
+                                <div class="flex gap-4 mb-2">
+                                    <span class="text-zinc-600">INPUT:</span>
+                                    <span class="text-secondary opacity-80">{"id":1,"status":"active"}</span>
+                                </div>
+                                <div class="flex gap-4">
+                                    <span class="text-zinc-600">OUTPUT:</span>
+                                    <span class="text-primary-container">{ <br />  "id": 1,<br />  "status":
+                                        "active"<br />}</span>
+                                </div>
+                            </div>
+                            <a class="inline-flex items-center gap-2 text-primary-container font-label-caps group-hover:gap-4 transition-all"
+                                href="#">
+                                Open Tool <span class="material-symbols-outlined">arrow_forward</span>
+                            </a>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-primary-container/5 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+                    </div>
+                    <!-- Featured Card 2 -->
+                    <div
+                        class="group relative bg-[#111111] border border-[#222222] rounded-xl p-8 hover:border-secondary transition-all">
+                        <div class="flex justify-between items-start mb-6">
+                            <span
+                                class="bg-secondary/10 text-secondary px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-full border border-secondary/20">Instant</span>
+                            <span class="material-symbols-outlined text-secondary text-4xl">picture_as_pdf</span>
+                        </div>
+                        <h3 class="font-headline-sm text-white mb-2">Merge PDF</h3>
+                        <p class="text-zinc-400 font-body-md mb-8">Combine multiple PDF files into one secure,
+                            high-quality document in seconds.</p>
+                        <div
+                            class="h-24 w-full bg-[#0A0A0A] rounded-lg border border-[#222222] mb-6 flex items-center justify-center border-dashed">
+                            <span class="material-symbols-outlined text-zinc-700 text-3xl">upload_file</span>
+                        </div>
+                        <a class="inline-flex items-center gap-2 text-secondary font-label-caps group-hover:gap-4 transition-all"
+                            href="#">
+                            Open Tool <span class="material-symbols-outlined">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <!-- Grouped Ecosystem Grid -->
+            <section class="space-y-24">
+                <!-- Dev Tools -->
+                <div>
+                    <div class="flex items-baseline gap-4 mb-8">
+                        <h2 class="font-headline-md text-on-surface">Developer Tools</h2>
+                        <span class="text-zinc-600 font-code-md text-sm">devbruh.dev ecosystem</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Tool Cards -->
+                        <div
+                            class="bg-[#111111] border border-[#222222] p-6 rounded-lg glow-hover transition-all group">
+                            <div class="flex justify-between mb-4">
+                                <span class="material-symbols-outlined text-primary-container">database</span>
+                                <span class="text-[10px] text-zinc-500 font-label-caps">Developer</span>
+                            </div>
+                            <h4 class="font-headline-sm text-sm mb-2">Base64 Encoder</h4>
+                            <p class="text-xs text-zinc-500 mb-6 leading-relaxed">Fast string to base64 conversion and
+                                decoding for binary data.</p>
+                            <a class="text-[10px] uppercase tracking-widest font-bold text-primary-container flex items-center gap-2"
+                                href="#">Open Tool <span
+                                    class="material-symbols-outlined text-sm">arrow_forward</span></a>
+                        </div>
+                        <div
+                            class="bg-[#111111] border border-[#222222] p-6 rounded-lg glow-hover transition-all group">
+                            <div class="flex justify-between mb-4">
+                                <span class="material-symbols-outlined text-primary-container">regular_expression</span>
+                                <span class="text-[10px] text-zinc-500 font-label-caps">Developer</span>
+                            </div>
+                            <h4 class="font-headline-sm text-sm mb-2">Regex Tester</h4>
+                            <p class="text-xs text-zinc-500 mb-6 leading-relaxed">Live regular expression testing with
+                                highlight matches and groups.</p>
+                            <a class="text-[10px] uppercase tracking-widest font-bold text-primary-container flex items-center gap-2"
+                                href="#">Open Tool <span
+                                    class="material-symbols-outlined text-sm">arrow_forward</span></a>
+                        </div>
+                        <div
+                            class="bg-[#111111] border border-[#222222] p-6 rounded-lg glow-hover transition-all group border-primary-container/40">
+                            <div class="flex justify-between mb-4">
+                                <span class="material-symbols-outlined text-primary-container">compress</span>
+                                <span class="text-[10px] text-primary-container font-label-caps">Built by
+                                    contributors</span>
+                            </div>
+                            <h4 class="font-headline-sm text-sm mb-2">Code Minifier</h4>
+                            <p class="text-xs text-zinc-500 mb-6 leading-relaxed">Shrink CSS and JS files for optimal
+                                web delivery performance.</p>
+                            <a class="text-[10px] uppercase tracking-widest font-bold text-primary-container flex items-center gap-2"
+                                href="#">Open Tool <span
+                                    class="material-symbols-outlined text-sm">arrow_forward</span></a>
+                        </div>
+                        <div
+                            class="bg-[#111111] border border-[#222222] p-6 rounded-lg glow-hover transition-all group">
+                            <div class="flex justify-between mb-4">
+                                <span class="material-symbols-outlined text-primary-container">format_align_left</span>
+                                <span class="text-[10px] text-zinc-500 font-label-caps">Developer</span>
+                            </div>
+                            <h4 class="font-headline-sm text-sm mb-2">YAML to JSON</h4>
+                            <p class="text-xs text-zinc-500 mb-6 leading-relaxed">Simple conversion between config
+                                formats with error checking.</p>
+                            <a class="text-[10px] uppercase tracking-widest font-bold text-primary-container flex items-center gap-2"
+                                href="#">Open Tool <span
+                                    class="material-symbols-outlined text-sm">arrow_forward</span></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- PDF Tools -->
+                <div>
+                    <div class="flex items-baseline gap-4 mb-8">
+                        <h2 class="font-headline-md text-on-surface">PDF Tools</h2>
+                        <span class="text-zinc-600 font-code-md text-sm">PDF Mocha service</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-[#111111] border border-[#222222] p-6 rounded-lg glow-hover transition-all">
+                            <div class="flex justify-between mb-4">
+                                <span class="material-symbols-outlined text-secondary">compress</span>
+                                <span class="text-[10px] text-zinc-500 font-label-caps">PDF</span>
+                            </div>
+                            <h4 class="font-headline-sm text-sm mb-2">Compress PDF</h4>
+                            <p class="text-xs text-zinc-500 mb-6 leading-relaxed">Reduce file size while maintaining
+                                visual quality for email attachments.</p>
+                            <a class="text-[10px] uppercase tracking-widest font-bold text-secondary flex items-center gap-2"
+                                href="#">Open Tool <span
+                                    class="material-symbols-outlined text-sm">arrow_forward</span></a>
+                        </div>
+                        <div class="bg-[#111111] border border-[#222222] p-6 rounded-lg glow-hover transition-all">
+                            <div class="flex justify-between mb-4">
+                                <span class="material-symbols-outlined text-secondary">content_cut</span>
+                                <span class="text-[10px] text-zinc-500 font-label-caps">PDF</span>
+                            </div>
+                            <h4 class="font-headline-sm text-sm mb-2">Split PDF</h4>
+                            <p class="text-xs text-zinc-500 mb-6 leading-relaxed">Extract specific pages or separate
+                                every page into distinct files.</p>
+                            <a class="text-[10px] uppercase tracking-widest font-bold text-secondary flex items-center gap-2"
+                                href="#">Open Tool <span
+                                    class="material-symbols-outlined text-sm">arrow_forward</span></a>
+                        </div>
+                        <div class="bg-[#111111] border border-[#222222] p-6 rounded-lg glow-hover transition-all">
+                            <div class="flex justify-between mb-4">
+                                <span class="material-symbols-outlined text-secondary">lock</span>
+                                <span class="text-[10px] text-zinc-500 font-label-caps">PDF</span>
+                            </div>
+                            <h4 class="font-headline-sm text-sm mb-2">Unlock PDF</h4>
+                            <p class="text-xs text-zinc-500 mb-6 leading-relaxed">Remove passwords and restrictions from
+                                your PDF files safely.</p>
+                            <a class="text-[10px] uppercase tracking-widest font-bold text-secondary flex items-center gap-2"
+                                href="#">Open Tool <span
+                                    class="material-symbols-outlined text-sm">arrow_forward</span></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Calculators & Knowledge -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div>
+                        <div class="flex items-baseline gap-4 mb-8">
+                            <h2 class="font-headline-md text-on-surface">Calculators</h2>
+                        </div>
+                        <div class="space-y-4">
+                            <div
+                                class="bg-[#111111] border border-[#222222] p-4 rounded flex items-center justify-between hover:bg-[#161616] transition-all">
+                                <div class="flex items-center gap-4">
+                                    <span class="material-symbols-outlined text-zinc-400">percent</span>
+                                    <span class="font-body-md">Percentage Calculator</span>
+                                </div>
+                                <span class="material-symbols-outlined text-zinc-700">chevron_right</span>
+                            </div>
+                            <div
+                                class="bg-[#111111] border border-[#222222] p-4 rounded flex items-center justify-between hover:bg-[#161616] transition-all">
+                                <div class="flex items-center gap-4">
+                                    <span class="material-symbols-outlined text-zinc-400">account_balance</span>
+                                    <span class="font-body-md">EMI Calculator</span>
+                                </div>
+                                <span class="material-symbols-outlined text-zinc-700">chevron_right</span>
+                            </div>
+                            <div
+                                class="bg-[#111111] border border-[#222222] p-4 rounded flex items-center justify-between hover:bg-[#161616] transition-all">
+                                <div class="flex items-center gap-4">
+                                    <span class="material-symbols-outlined text-zinc-400">square_foot</span>
+                                    <span class="font-body-md">Unit Converter</span>
+                                </div>
+                                <span class="material-symbols-outlined text-zinc-700">chevron_right</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline gap-4 mb-8">
+                            <h2 class="font-headline-md text-on-surface">Knowviax Tools</h2>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="bg-[#111111] border border-[#222222] p-6 rounded-lg group">
+                                <div
+                                    class="w-10 h-10 bg-on-secondary-fixed-variant rounded flex items-center justify-center mb-4 text-secondary">
+                                    <span class="material-symbols-outlined">psychology</span>
+                                </div>
+                                <h4 class="font-bold mb-2">Concept Breakdown</h4>
+                                <p class="text-xs text-zinc-500 mb-4 leading-relaxed">Complex technical topics
+                                    simplified into core visual components.</p>
+                                <span
+                                    class="bg-secondary/10 text-secondary text-[9px] uppercase font-black px-2 py-1 rounded">Experimental</span>
+                            </div>
+                            <div class="bg-[#111111] border border-[#222222] p-6 rounded-lg group">
+                                <div
+                                    class="w-10 h-10 bg-on-tertiary-fixed-variant rounded flex items-center justify-center mb-4 text-tertiary">
+                                    <span class="material-symbols-outlined">auto_stories</span>
+                                </div>
+                                <h4 class="font-bold mb-2">Study Helpers</h4>
+                                <p class="text-xs text-zinc-500 mb-4 leading-relaxed">Flashcard generators and active
+                                    recall prompts for deep learning.</p>
+                                <span
+                                    class="bg-zinc-800 text-zinc-400 text-[9px] uppercase font-black px-2 py-1 rounded">Popular</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Builder Banner -->
+            <section class="mt-32">
+                <div class="bg-[#175CFF] rounded-2xl p-1 md:p-2">
+                    <div
+                        class="bg-[#0A0A0A] rounded-xl overflow-hidden relative p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 border border-[#175CFF]/30">
+                        <div class="relative z-10 max-w-xl">
+                            <h2 class="font-headline-md text-white mb-6">Build With Us</h2>
+                            <p class="text-zinc-400 font-body-lg mb-8 leading-relaxed">
+                                These tools aren't just built for users. They're built with developers learning in real
+                                time. Our ecosystem is open for collaboration and technical contribution.
+                            </p>
+                            <a
+                                class="bg-[#175CFF] text-white px-8 py-4 rounded-lg font-label-caps flex items-center gap-3 hover:glow-sm transition-all" href="/pages/build/">
+                                Join as a Builder <span class="material-symbols-outlined">bolt</span>
+                        </a>
+                        </div>
+                        <div
+                            class="relative z-10 w-full md:w-1/3 aspect-video bg-[#111111] rounded-lg border border-[#222222] p-4 font-code-md text-[10px] overflow-hidden">
+                            <div class="text-secondary mb-2">&gt; git clone matrixbreach/tools-ecosystem</div>
+                            <div class="text-zinc-600 mb-2">Cloning into 'tools-ecosystem'...</div>
+                            <div class="text-zinc-600 mb-2">remote: Enumerating objects: 1042, done.</div>
+                            <div class="text-[#175CFF]">&gt; npm run build</div>
+                            <div class="text-zinc-500">Creating an optimized production build...</div>
+                            <div class="mt-4 h-1 w-full bg-zinc-800">
+                                <div class="h-full bg-[#175CFF] w-3/4"></div>
+                            </div>
+                        </div>
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-[#175CFF]/10 blur-[120px] rounded-full"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Footer (Matched from SCREEN_4) -->
+    <!-- <footer class="w-full py-12 bg-[#0A0A0A] border-t border-[#222222]">
+<div class="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center px-6 gap-8">
+<div class="flex flex-col gap-4">
+<div class="text-lg font-bold text-white">MATRIXBREACH</div>
+<p class="font-mono text-xs uppercase tracking-widest text-neutral-500">© 2024 MATRIXBREACH. SYSTEM_OVERRIDE_ENABLED</p>
+</div>
+<div class="flex gap-8 font-mono text-xs uppercase tracking-widest">
+<a class="text-neutral-500 hover:text-[#175CFF] transition-all cursor-pointer" href="#">GitHub</a>
+<a class="text-neutral-500 hover:text-[#175CFF] transition-all cursor-pointer" href="#">Documentation</a>
+<a class="text-neutral-500 hover:text-[#175CFF] transition-all cursor-pointer" href="#">Status</a>
+<a class="text-neutral-500 hover:text-[#175CFF] transition-all cursor-pointer" href="#">Privacy</a>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-neutral-500 hover:text-white cursor-pointer">rss_feed</span>
+<span class="material-symbols-outlined text-neutral-500 hover:text-white cursor-pointer">public</span>
+</div>
+</div>
+</footer> -->
+
+    <div id="footer"></div>
+
+    <script src="/js/scripts/layout.js"></script>
+</body>
+
+</html>
